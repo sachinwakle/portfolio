@@ -6,7 +6,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
-import { brown, grey } from "@material-ui/core/colors";
+import { brown} from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
   root: {},

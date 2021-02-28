@@ -1,9 +1,6 @@
 import { Grid } from "@material-ui/core";
-import { green, yellow } from "@material-ui/core/colors";
-import { Height } from "@material-ui/icons";
 import React from "react";
 import SectionItem from "./SectionItem";
-import SectionInfo from "./SectionInfo";
 import ExperienceFirst from "./ExperienceFirst";
 import Education from "./Education";
 import Achievements from "./Achievements";
@@ -14,15 +11,11 @@ import Summary from "./Summary";
 import NameBanner from "./NameBanner";
 import ProfilePic from "./ProfilePic";
 
-const style = {
-  backgroundColor: "green",
-};
-
 function BaseGrid() {
   return (
     <React.Fragment>
       <Grid container justify="center">
-        <Grid container justify="space-between" xs={12} sm={9}>
+        <Grid container item justify="space-between" xs={12} sm={9}>
           <SectionItem id="profile-pic-container" xs={12} sm={6}>
             <ProfilePic />
           </SectionItem>

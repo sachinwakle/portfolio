@@ -1,30 +1,37 @@
-import React from "react";
+import React, { createContext, useState } from "react";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import theme from "./theme";
 import BaseGrid from "./components/BaseGrid";
-import SectionInfo from './components/SectionInfo'
-import BulletItem from "./components/BulletItem";
-import { Typography } from "@material-ui/core";
-import ExperienceOne from "./components/ExperienceOne";
-import ExperienceFirst from "./components/ExperienceFirst";
+import { createMuiTheme } from "@material-ui/core/styles";
 
-function App() {
+const ThemeConext = createContext();
+
+export default function App() {
+  const [appTheme, setAppTheme] = useState("light");
+  const theme = createMuiTheme({
+    palette: {
+      type: appTheme,
+    },
+  });
+
+  const AppThemeProvider = ThemeConext.Provider;
+
+  const changeTheme = () => {
+    setAppTheme((preTheme) => {
+      return preTheme === "light" ? "dark" : "light";
+    });
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div className="App">
-        <BaseGrid/>
-        {/* <SectionInfo/> */}
-        {/* <BulletItem leftContent={lc} rightContent={rc}/> */}
-        {/* <ExperienceOne/> */}
-        {/* <ExperienceFirst/> */}
-      </div>
+      <AppThemeProvider value={changeTheme}>
+        <div className="App">
+          <BaseGrid />
+        </div>
+      </AppThemeProvider>
     </ThemeProvider>
   );
 }
 
-const lc = <Typography>2015-2018</Typography>;
-const rc = <Typography>Tcs  fgdfjgfdlgj</Typography>;
-
-export default App;
+export { ThemeConext };
